@@ -1,0 +1,48 @@
+.example-card {
+  max-width: 205px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.shiba-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg://www.freepnglogos.com/images/shoes-17775.html");
+  background-size: cover;
+}
+
+.card-image {
+  width: 150px;
+  max-height: 163px;
+}
+
+.product-container {
+  transition: 0.5s;
+  position: absolute;
+  left: 0px;
+}
+
+.container {
+  position: relative;
+  // width: 50%;
+  width: 920px;
+  display: flex;
+  min-height: 330px;
+  overflow: hidden;
+
+  .previous_btn {
+    position: absolute;
+    top: 121px;
+    left: 0px;
+  }
+
+  .next_btn {
+    position: absolute;
+    top: 121px;
+    right: 0;
+  }
+}
+
+.cart-icon {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+}

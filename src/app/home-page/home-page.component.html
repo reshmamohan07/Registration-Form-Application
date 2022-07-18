@@ -1,0 +1,68 @@
+<div class="cart-icon">
+  <button
+    mat-fab
+    color="accent"
+    aria-label="Cart"
+    (click)="gotoCart()"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+</div>
+<div
+  class="products-wrapper"
+  *ngFor="let spProducts of allProducts; let i = index"
+>
+  <h2 class="text-center" *ngIf="spProducts.products.length">
+    {{ spProducts.label }}
+  </h2>
+  <div class="container" *ngIf="spProducts.products.length">
+    <div
+      class="d-flex flex-row product-container"
+      [ngStyle]="{
+        left: -182 * 3.791208791208791 * spProducts.currentDisplayIndex + 'px'
+      }"
+    >
+      <div *ngFor="let product of spProducts.products" class="mx-4">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img class="card-image" [src]="product.image" alt="" />
+          <mat-card-content> </mat-card-content>
+          <mat-card-actions class="d-flex justify-content-between w-100">
+            <button
+              mat-mini-fab
+              color="accent"
+              aria-label="Add to Cart"
+              (click)="addToCart(product.id, i)"
+            >
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+            <button mat-mini-fab mat-icon-button color="primary">
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <button
+      mat-fab
+      color="primary"
+      class="previous_btn"
+      (click)="showPrevious(i)"
+      [disabled]="!enablePreviousBtn(i)"
+    >
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button
+      mat-fab
+      color="primary"
+      class="next_btn"
+      (click)="showNext(i)"
+      [disabled]="!enableNextBtn(i)"
+    >
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
+</div>
